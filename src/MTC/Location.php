@@ -7,7 +7,7 @@ class Location
 {
     private $result;
 
-    public function setFindAddress(\MTC\IGeographical $find)
+    public function setFind(\MTC\IGeographical $find)
     {
         if (!$find->validated()) {
             throw new \Exception('Invalid data');
@@ -42,10 +42,17 @@ class Location
 
     private function mountData($data)
     {
-        $address = '';
         if (count($data->results) > 0) {
             $address = $data->results[0]->formatted_address;
+            $lat = $data->results[0]->geometry->location->lat;
+            $long = $data->results[0]->geometry->location->lng;
+
+            return array(
+                'address' => $address,
+                'latitude' => number_format($lat, 5),
+                'longitude' => number_format($long, 5)
+            );
         }
-        return $address;
+        return array();
     }
 }
