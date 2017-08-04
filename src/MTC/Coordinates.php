@@ -4,7 +4,7 @@
 namespace MTC;
 
 
-class Coordinates
+class Coordinates implements IGeographical
 {
     protected $latitude;
     protected $longitude;
@@ -57,5 +57,10 @@ class Coordinates
         }
 
         return false;
+    }
+
+    public function __toString()
+    {
+        return $this->getLatitude() . ',' . $this->getLongitude();
     }
 }
