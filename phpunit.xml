@@ -2,22 +2,9 @@
 <phpunit
         backupGlobals="true"
         colors="true"
-        stopOnFailure="false"
-        bootstrap="tests/bootstrap.php">
-
-    <filter>
-        <whitelist>
-            <directory>./app</directory>
-            <exclude>
-                <directory>./public</directory>
-                <directory>./vendor</directory>
-                <directory>./tests</directory>
-            </exclude>
-        </whitelist>
-    </filter>
+        stopOnFailure="false">
 
     <testsuite name="App Test Suite">
         <directory suffix=".php">./tests</directory>
     </testsuite>
-
 </phpunit>
