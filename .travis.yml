@@ -5,3 +5,5 @@ os:
   - linux
 branches:
   only: master
+script:
+  - ./vendor/phpunit/phpunit/phpunit --configuration phpunit.xml --coverage-text
