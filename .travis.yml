@@ -8,5 +8,5 @@ branches:
 install:
   - composer install
 script:
-  - phpunit
+  - phpunit tests/*
 
